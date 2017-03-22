@@ -1,0 +1,84 @@
+
+set nu!
+
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
+set scrolloff=3
+set tags=tags;
+
+set incsearch
+
+map <F2> :tabnew .<CR>
+map <C-F2> \be
+
+"set mouse=a
+
+colorscheme default
+
+let Tlist_Exit_OnlyWindow=1
+let Tlist_Use_Right_Window=1 
+let Tlist_Enable_Fold_Column=0
+let Tlist_WinHeight = 50
+
+"let g:bufExplorerMinHeight=50
+"let g:FileExplorerHeight=30
+"let g:miniBufExplorerMoreThanOne=0
+"let nlines=5
+
+"set ls=2
+"set statusline=%F
+
+""""""""""""""""""""""""""""""
+" winManager setting
+""""""""""""""""""""""""""""""
+let g:winManagerWindowLayout = "TagList|FileExplorer,BufExplorer"
+let g:winManagerWidth = 30
+"let g:winManagerHeight = 30
+let g:defaultExplorer = 1
+nmap <C-W><C-F> :FirstExplorerWindow<cr>
+nmap <C-W><C-B> :BottomExplorerWindow<cr>
+map <F3> :WMToggle<CR>
+"map <F4> g<C-]>
+map <C-]> g<C-]>
+
+""""""""""""""""""""""""""""""
+" lookupfile setting
+""""""""""""""""""""""""""""""
+let g:LookupFile_MinPatLength = 2               "最少输入2个字符才开始查找
+let g:LookupFile_PreserveLastPattern = 0        "不保存上次查找的字符串
+let g:LookupFile_PreservePatternHistory = 1     "保存查找历史
+let g:LookupFile_AlwaysAcceptFirst = 1          "回车打开第一个匹配项目
+let g:LookupFile_AllowNewFiles = 0              "不允许创建不存在的文件
+if filereadable("./filenametags")                "设置tag文件的名字
+let g:LookupFile_TagExpr = '"./filenametags"'
+endif
+"映射LookupFile为,lk
+nmap <silent> <leader>lf :LUTags<cr>
+"映射LUBufs为,ll
+nmap <silent> <leader>lb :LUBufs<cr>
+"映射LUWalk为,lw
+nmap <silent> <leader>lw :LUWalk<cr>
+
+"""""""""""""""""""""""""""""
+" cscope setting
+"""""""""""""""""""""""""""""
+if has("cscope")
+  set csprg=/usr/bin/cscope
+  set csto=1
+  set cst
+  set nocsverb
+  " add any database in current directory
+  if filereadable("cscope.out")
+      cs add cscope.out
+  endif
+  set csverb
+endif
+
+nmap <C-\>s :cs find s <C-R>=expand("<cword>")<CR><CR>
+nmap <C-\>g :cs find g <C-R>=expand("<cword>")<CR><CR>
+nmap <C-\>c :cs find c <C-R>=expand("<cword>")<CR><CR>
+nmap <C-\>t :cs find t <C-R>=expand("<cword>")<CR><CR>
+nmap <C-\>e :cs find e <C-R>=expand("<cword>")<CR><CR>
+nmap <C-\>f :cs find f <C-R>=expand("<cfile>")<CR><CR>
+nmap <C-\>i :cs find i ^<C-R>=expand("<cfile>")<CR>
