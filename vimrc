@@ -92,6 +92,13 @@ map <F10> :MBEbn<CR>
 """""""""""""""""""""""""""""
 set laststatus=2
 
+"""""""""""""""""""""""""""""
+" autocmd config, remember last edit position
+"""""""""""""""""""""""""""""
+if has("autocmd")
+	au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
+	\| exe "normal g'\"" | endif
+endif
 
 """""""""""""""""""""""""""""
 " cscope config
