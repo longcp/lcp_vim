@@ -58,6 +58,8 @@ set softtabstop=4
 set shiftwidth=4
 set scrolloff=3
 set tags=tags;
+set hlsearch
+set incsearch
 "set incsearch
 
 """""""""""""""""""""""""""""
