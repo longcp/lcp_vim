@@ -34,6 +34,8 @@ Bundle 'bling/vim-airline'
 Bundle 'Valloric/YouCompleteMe'
 Bundle 'kien/ctrlp.vim'
 Bundle 'vim-syntastic/syntastic'
+Bundle 'Raimondi/delimitMate'
+Bundle 'scrooloose/nerdcommenter'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -60,6 +62,9 @@ set scrolloff=3
 set tags=tags;
 set hlsearch
 set incsearch
+"set paste
+set autoindent 
+set cindent
 "set incsearch
 
 """""""""""""""""""""""""""""
@@ -124,3 +129,7 @@ nmap <C-\>t :cs find t <C-R>=expand("<cword>")<CR><CR>
 nmap <C-\>e :cs find e <C-R>=expand("<cword>")<CR><CR>
 nmap <C-\>f :cs find f <C-R>=expand("<cfile>")<CR><CR>
 nmap <C-\>i :cs find i ^<C-R>=expand("<cfile>")<CR>
+
+"""""""""""""""""""""""""""""
+" auto complete ( [ ' "
+"""""""""""""""""""""""""""""
